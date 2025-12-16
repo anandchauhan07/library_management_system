@@ -1,5 +1,6 @@
 <?php
-include '../../config.php';
+include '../config.php';
+
 
 if (!isset($_SESSION['admin']) || !isset($_GET['id'])) {
     header("Location: ../index.php");
@@ -35,7 +36,7 @@ $book=mysqli_fetch_assoc($bookResult);
         </div>
 
         <div class="card-body">
-          <form action="edit_book_process.php?id=<?=$bookid?>&ava=<?=$book['bookava']?>" method="POST" enctype="multipart/form-data">
+          <form action="edit_delete/edit_book_process.php?id=<?=$bookid?>&ava=<?=$book['bookava']?>" method="POST" enctype="multipart/form-data">
 
             <div class="row mb-3">
               <div class="col-md-6">
@@ -122,7 +123,7 @@ $book=mysqli_fetch_assoc($bookResult);
 
             <div class="d-grid">
               <button type="submit" class="btn btn-success">
-                Add Book
+                Edit Book
               </button>
             </div>
 

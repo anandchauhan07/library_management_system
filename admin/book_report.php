@@ -55,7 +55,7 @@ $result = mysqli_query($conn, $query);
 
   <!-- ACTION -->
   <td>
-    <a href="edit_delete/edit_book.php?id=<?= $row['id']; ?>" 
+    <a href="dashboard_admin.php?page=edit_book&id=<?= $row['id']; ?>" 
        class="btn btn-sm btn-warning">
        Edit
     </a>

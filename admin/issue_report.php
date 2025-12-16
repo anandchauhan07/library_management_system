@@ -49,7 +49,7 @@ $result = mysqli_query($conn, $query);
                 </span>
               </td>
               <td>
-                <a href="../User/issueRecord/return_book.php?id=<?=$row['id'];?>" class="btn btn-sm btn-primary">Return</a>
+                <a href="../User/issueRecord/return_book.php?id=<?=$row['id'];?>" class="btn btn-sm btn-primary" onclick="return confirm('are you sure you want to return ?')">Return</a>
               </td>
             </tr>
         <?php

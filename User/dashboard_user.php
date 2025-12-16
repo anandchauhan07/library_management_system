@@ -1,3 +1,19 @@
+
+
+<?php
+// ====== SESSION & BASE URL ======
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+define('BASE_URL', '/LIBRARY_MANAGEMENT/');
+
+// optional auth check (agar user login required hai)
+// if (!isset($_SESSION['user_id'])) {
+//     header("Location: " . BASE_URL . "index.php");
+//     exit;
+// }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +27,6 @@
       background-color: #eaffea;
     }
 
-    /* Header */
     .header {
       background: #fff;
       padding: 10px 20px;
@@ -30,13 +45,11 @@
       margin: 0;
     }
 
-    /* Layout */
     .container {
       display: flex;
       padding: 20px;
     }
 
-    /* Sidebar */
     .sidebar {
       width: 220px;
     }
@@ -57,7 +70,6 @@
       background: #169e16;
     }
 
-    /* Content */
     .content {
       flex: 1;
       margin-left: 20px;
@@ -73,51 +85,71 @@
       text-align: center;
       margin-top: 0;
     }
-
-    .info {
-      margin-top: 30px;
-      font-size: 16px;
-    }
-
-    .info p {
-      margin: 15px 0;
-    }
-
-    .info span {
-      font-weight: bold;
-    }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <div class="header">
-    <img src="library.png" alt="Library Logo">
-    <h1>Digital Library</h1>
+<!-- ===== HEADER ===== -->
+<div class="header">
+  <img src="<?= BASE_URL ?>images/library_logo.jpg" alt="Library Logo">
+  <h1>Digital Library</h1>
+</div>
+
+<!-- ===== MAIN LAYOUT ===== -->
+<div class="container">
+
+  <!-- ===== SIDEBAR ===== -->
+  <div class="sidebar">
+    <a href="<?= BASE_URL ?>User/dashboard_user.php">Welcome</a>
+
+    <a href="<?= BASE_URL ?>User/dashboard_user.php?page=my_account">
+      My Account
+    </a>
+
+    <a href="<?= BASE_URL ?>User/dashboard_user.php?page=request_book">
+      Request Book
+    </a>
+
+    <a href="<?= BASE_URL ?>User/dashboard_user.php?page=issue_record">
+      Book Report
+    </a>
+
+    <a href="<?= BASE_URL ?>logout.php">LOGOUT</a>
   </div>
 
-  <!-- Main Layout -->
-  <div class="container">
+  <!-- ===== CONTENT ===== -->
+  <div class="content">
+    <?php
+    if (isset($_GET['page'])) {
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <a href="">Welcome</a>
-      <a href="my_account.php">My Account</a>
-      <a href="requestBook/request_book.php">Request Book</a>
-      <a href="issueRecord/issue_record.php">Book Report</a>
-      <a href="../logout.php">LOGOUT</a>
-    </div>
+        $page = $_GET['page'];
 
-    <!-- Content Area -->
-    <div class="content">
-      <h2>My Account</h2>
+        switch ($page) {
+            case 'request_book':
+                include 'requestBook/request_book.php';
+                break;
 
-      <div class="info">
-      <?php include('my_account.php'); ?>
-      </div>
-    </div>
+            case 'issue_record':
+                include 'issueRecord/issue_record.php';
+                break;
 
+            case 'my_account':
+                include 'my_account.php';
+                break;
+
+            default:
+                echo "<h3>Page not found</h3>";
+                break;
+        }
+
+    } else {
+        // default page
+        include 'my_account.php';
+    }
+    ?>
   </div>
+
+</div>
 
 </body>
 </html>

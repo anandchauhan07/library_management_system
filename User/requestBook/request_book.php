@@ -1,5 +1,5 @@
 <?php
-include "../../config.php";
+include "../config.php";
 
 
 if (!isset($_SESSION['user_id'])) {
@@ -27,12 +27,12 @@ $bookRes = mysqli_query($conn, "SELECT id, bookname FROM book WHERE bookava > 0"
 
 <div class="container mt-4">
     <div class="card shadow">
-        <div class="card-header bg-success text-white text-center">
+        <div class="card-header text-white text-center" style="background:#2acb1a;">
             <h4>Request Book</h4>
         </div>
 
         <div class="card-body">
-            <form action="request_book_process.php" method="POST">
+            <form action="requestBook/request_book_process.php" method="POST">
 
                 <div class="mb-3">
                     <label class="form-label">Select Book</label>
@@ -52,7 +52,7 @@ $bookRes = mysqli_query($conn, "SELECT id, bookname FROM book WHERE bookava > 0"
                 </div>
 
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-success">
+                    <button type="submit" class="btn" style="background:#2acb1a;">
                         Request Book
                     </button>
                 </div>

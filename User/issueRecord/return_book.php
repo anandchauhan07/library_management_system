@@ -1,11 +1,13 @@
 <?php
 include "../../config.php";
+define('BASE_URL', '/LIBRARY_MANAGEMENT/');
 
+// session_start();
 
-if (!isset($_SESSION['user_id'])) {
-    header("Location: ../index.php");
-    exit;
-}
+// if (!isset($_SESSION['user_id'])) {
+//     header("Location: ../index.php");
+//     exit;
+// }
 
 if (!isset($_GET['id'])) {
     die("Invalid request");
@@ -80,11 +82,18 @@ mysqli_query(
     "DELETE FROM issuebook WHERE id = $issue_id"
 );
 
-if(isset($_SESSION['admin']))
-{
-    header('Location:../../admin/dashboard_admin.php?page=issue_report');
+
+if(isset($_SESSION['user_id'])){
+    $redirect= BASE_URL . "User/dashboard_user.php?page=issue_record";
+}else{
+    $redirect=BASE_URL . "admin/dashboard_admin.php?page=issue_report";
 }
+
 echo "<script>
-    alert('Book returned successfully. Fine: ₹$fine');
-    window.location='issue_record.php';
+alert('Book returned Successfully . File: ₹$file');
+window.location.href='$redirect';
 </script>";
+exit;
+
+
+?>

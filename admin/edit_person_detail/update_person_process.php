@@ -1,10 +1,6 @@
 <?php
 include '../../config.php';
-if(!isset($_POST))
-{
-    header("Location:../../index.php");
-    exit;
-}
+
 
 $name=$_POST['name'];
 $email=$_POST['email'];

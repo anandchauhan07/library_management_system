@@ -1,15 +1,10 @@
 <?php
-require 'auth.php';
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Admin Sidebar</title>
 
+define('BASE_URL','/LIBRARY_MANAGEMENT/');
+?>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
+<div id="sidebar" class="sidebar">
   <style>
     body {
       overflow-x: hidden;
@@ -37,37 +32,25 @@ require 'auth.php';
     
    
   </style>
-</head>
-<body>
+
 
 <div class="d-flex">
 
   <!-- Sidebar -->
   <div id="sidebar" class="sidebar p-3">
 
-   <a href="admin/dashboard_admin.php?page=add_book" class="btn menu-btn">ADD BOOK</a>
-<a href="admin/dashboard_admin.php?page=book_report" class="btn menu-btn">BOOK REPORT</a>
-<a href="admin/dashboard_admin.php?page=book_request" class="btn menu-btn">BOOK REQUESTS</a>
-<a href="admin/dashboard_admin.php?page=add_person" class="btn menu-btn">ADD STUDENT</a>
-<a href="admin/dashboard_admin.php?page=person_report" class="btn menu-btn">STUDENT REPORT</a>
-<a href="admin/dashboard_admin.php?page=issue_book" class="btn menu-btn">ISSUE BOOK</a>
-<a href="admin/dashboard_admin.php?page=issue_report" class="btn menu-btn">ISSUE REPORT</a>
-<a href="logout.php" class="btn menu-btn">LOGOUT</a>
+<a href="<?= BASE_URL ?>admin/dashboard_admin.php?page=add_book" class="btn menu-btn">ADD BOOK</a>
+<a href="<?= BASE_URL ?>admin/dashboard_admin.php?page=book_report" class="btn menu-btn">BOOK REPORT</a>
+<a href="<?= BASE_URL ?>admin/dashboard_admin.php?page=book_request" class="btn menu-btn">BOOK REQUESTS</a>
+<a href="<?= BASE_URL ?>admin/dashboard_admin.php?page=add_person" class="btn menu-btn">ADD STUDENT</a>
+<a href="<?= BASE_URL ?>admin/dashboard_admin.php?page=person_report" class="btn menu-btn">STUDENT REPORT</a>
+<a href="<?= BASE_URL ?>admin/dashboard_admin.php?page=issue_book" class="btn menu-btn">ISSUE BOOK</a>
+<a href="<?= BASE_URL ?>admin/dashboard_admin.php?page=issue_report" class="btn menu-btn">ISSUE REPORT</a>
+<a href="<?= BASE_URL ?>logout.php" class="btn menu-btn">LOGOUT</a>
 
   </div>
 
-  <!-- Main Content -->
-  <div class="flex-grow-1 p-4">
-
-    <!-- Toggle button -->
-    <button class="btn btn-success mb-3" id="toggleBtn">
-      ☰ Menu
-    </button>
-
-    <h3>Admin Dashboard</h3>
-    <p>Welcome Admin</p>
-
-  </div>
+  
 </div>
 <script>
   document.getElementById("toggleBtn").addEventListener("click", function () {
@@ -76,6 +59,5 @@ require 'auth.php';
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
 
+</div>

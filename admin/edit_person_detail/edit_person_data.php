@@ -1,23 +1,25 @@
 <?php
-include '../../config.php';
-if(!isset($_GET['id'] ) || !isset($_SESSION['admin']))
+include '../config.php';
+
+
+if(!isset($_GET['id']) && !isset($_SESSION['admin']))
 {
-     header("Location:../../index.php");
+    header("Location:../../index.php");
     exit;
 }
 
 $personid=$_GET['id'];
 $result=mysqli_query($conn,"select * from userdata where id=$personid");
 $data=mysqli_fetch_assoc($result);
-print_r($data);
+
 ?>
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <h4 class="mb-3">Add Person</h4>
 
 <div class="card shadow">
   <div class="card-body">
-
-    <form action="update_person_process.php?id=<?= $data['id'];?>" method="POST">
+  
+    <form action="edit_person_detail/update_person_process.php?id=<?= $data['id'];?>" method="POST">
 
       <div class="row mb-3">
         <div class="col-md-6">
