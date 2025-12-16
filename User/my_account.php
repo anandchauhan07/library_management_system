@@ -14,10 +14,7 @@ $query = "SELECT name, email, type FROM userdata WHERE id = $user_id";
 $result = mysqli_query($conn, $query);
 $user = mysqli_fetch_assoc($result);
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My Account</title>
+
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -55,21 +52,11 @@ $user = mysqli_fetch_assoc($result);
 
 <div class="container-fluid mt-4">
     <div class="row">
-
-        <!-- Sidebar -->
-        <!-- <div class="col-md-3 sidebar">
-            <button>Welcome</button>
-            <button onclick="location.href='my_account.php'">My Account</button>
-            <button onclick="location.href='request_book.php'">Request Book</button>
-            <button onclick="location.href='book_report_user.php'">Book Report</button>
-            <button onclick="location.href='logout.php'">LOGOUT</button>
-        </div> -->
-
         <!-- Content -->
         <div class="col-md-9">
             <div class="account-box">
                 <!-- <div class="account-header">My Account</div> -->
-
+                <h2>My Account</h2>
                 <p><strong>Person Name:</strong> <?= htmlspecialchars($user['name']); ?></p>
                 <p><strong>Person Email:</strong> <?= htmlspecialchars($user['email']); ?></p>
                 <p><strong>Account Type:</strong> <?= htmlspecialchars($user['type']); ?></p>
@@ -80,5 +67,4 @@ $user = mysqli_fetch_assoc($result);
     </div>
 </div>
 
-</body>
-</html>
+

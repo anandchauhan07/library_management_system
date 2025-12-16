@@ -1,5 +1,5 @@
 <?php
-include "../../config.php";
+include "../config.php";
 
 // login check
 if (!isset($_SESSION['user_id'])) {
@@ -14,10 +14,7 @@ $query = "SELECT * FROM issuebook WHERE userid = $user_id ORDER BY id DESC";
 $result = mysqli_query($conn, $query);
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Issue Record</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
@@ -49,9 +46,9 @@ $result = mysqli_query($conn, $query);
             background:#f4b400;
         }
     </style>
-</head>
 
-<body>
+
+
 
 <div class="container-fluid mt-4">
   <div class="row">
@@ -92,7 +89,7 @@ $result = mysqli_query($conn, $query);
                 </span>
               </td>
               <td>
-                <a href="return_book.php?id=<?= $row['id']; ?>" 
+                <a href="issueRecord/return_book.php?id=<?= $row['id']; ?>" 
                    class="btn btn-sm btn-primary">
                    Return
                 </a>
@@ -113,5 +110,3 @@ $result = mysqli_query($conn, $query);
   </div>
 </div>
 
-</body>
-</html>

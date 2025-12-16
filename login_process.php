@@ -1,6 +1,6 @@
 <?php
 include "config.php";
-include "index.php";
+
 
 
 $email=$_GET['email'];
@@ -23,15 +23,18 @@ $userid=mysqli_fetch_assoc(
 if(mysqli_num_rows($result)==1)
 {
     $_SESSION['admin']=$email;
-    header("Location:sidebar.php");
+    header("Location:admin/dashboard_admin.php");
+    
 
 }
 else if(mysqli_num_rows($result2)==1){
      $_SESSION['user_id']=$userid['id'];
     header("Location:User/dashboard_user.php");
+    
 }
 
 else{
+    include('index.php');
     echo "<h4 style='color:red;text-align:center;'>Invalid admin credentials</h4>";
 }
 

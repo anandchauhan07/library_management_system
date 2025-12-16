@@ -37,7 +37,7 @@ $result = mysqli_query($conn, $query);
                 </span>
               </td>
               <td>
-                <a href="edit_person_detail/edit_person_data.php?id=<?=$row['id'];?>" class="btn btn-sm btn-warning">Edit</a>
+                <a href="dashboard_admin.php?page=edit_person_data&id=<?=$row['id'];?>" class="btn btn-sm btn-warning">Edit</a>
               
                 <a href="delete_person/delete_person.php?id=<?=$row['id'];?>" onclick=" return confirm('are you sure you want to delete this user?')" class="btn btn-sm btn-danger">Delete</a>
               </td>

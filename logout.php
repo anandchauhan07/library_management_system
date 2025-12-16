@@ -1,5 +1,7 @@
 <?php
+define('BASE_URL','/LIBRARY_MANAGEMENT/');
 session_start();
+
 
 // remove all session variables
 session_unset();
@@ -8,6 +10,7 @@ session_unset();
 session_destroy();
 
 // redirect to login page
-header("Location: index.php");
+$url=$BASE_URL.'Location: index.php';
+header($url);
 exit;
 ?>
